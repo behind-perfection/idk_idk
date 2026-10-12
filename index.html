@@ -196,7 +196,7 @@ button.pin{transition:none}button.pin:active{transform:translate(-50%,-100%)}
  if(!Element.prototype.remove)Element.prototype.remove=function(){if(this.parentNode)this.parentNode.removeChild(this)};
 })();
 /* Personalise before gifting: put her name and your message here (she can also change them in ⚙ Settings). */
-const GIFT={name:"Meow Meow",note:"Made just for you",
+const GIFT={name:"Meow Meow",note:"Made just for you ♥",
  /* Hidden sorry note. Just says sorry. Change the word here if you like (\n = new line). She finds it by tapping the 🐱 in the title 5 times quickly.
     It opens one time only and is gone for good afterwards. To test it without using it up, open the app with #sorry-preview at the end of the address. */
  sorry:"Sorry.",
@@ -207,11 +207,11 @@ const pad=n=>String(n).padStart(2,"0"),dk=d=>d.getFullYear()+"-"+pad(d.getMonth(
 const pick=a=>a[Math.floor(Math.random()*a.length)],sum=o=>Object.values(o).reduce((a,b)=>a+b,0),hrs=m=>(m/60).toFixed(1)+"h";
 const opt=(a,v)=>a.map(o=>`<option ${o==v?"selected":""}>${esc(o)}</option>`).join("");
 let S,cur="home";
-const VER=18,VM=51,vt=e=>{const o=e.dataset.o;e.textContent="✦ v"+VER+(o?"":" · v"+VM+" for the maker");e.dataset.o=o?"":"1"};
+const VER=21,VM=54,vt=e=>{const o=e.dataset.o;e.textContent="✦ v"+VER+(o?"":" · v"+VM+" for the maker");e.dataset.o=o?"":"1"};
 function load(){let r=null;try{r=localStorage.getItem(K)}catch(e){}try{S=JSON.parse(r)||{}}catch(e){S={}}
  if(!Object.keys(S).length){try{S=JSON.parse(localStorage.getItem(K+"B"))||{}}catch(e){S={}}}
  else if(S.v!=null&&S.v!=VER){try{localStorage.setItem(K+"B",r)}catch(e){}}
- S.v=VER;norm()}function norm(){MC_={};
+ S.v=VER;norm()}function norm(){MC_={};if((S.dm||0)<2){if(Object.keys(S).length>1){if(S.name==="Billi Mausi")S.name=GIFT.name;if(["Made just for you","Made just for you ♥","Made with love, just for you ♥"].indexOf(S.note)>=0)S.note=GIFT.note}S.dm=2}
  if(S.name==null)S.name=GIFT.name;if(S.note==null)S.note=GIFT.note;
  ["logs","study","hw"].forEach(k=>{if(!Array.isArray(S[k]))S[k]=[]});S.plan=S.plan||{};S.coll=S.coll||{};S.prog=S.prog||{};S.exams=Array.isArray(S.exams)?S.exams:[];S.pz=Array.isArray(S.pz)?S.pz:[];S.sp=+S.sp||0;S.marks=Array.isArray(S.marks)?S.marks:[];S.sky=S.sky&&typeof S.sky=="object"?S.sky:{};S.rev=S.rev&&typeof S.rev=="object"?S.rev:{};S.th=S.th||"pink";S.lib=Array.isArray(S.lib)?S.lib:[];(S.coll.read||[]).forEach(e=>S.lib.push({id:"r"+Math.random().toString(36).slice(2,8),t:e.v[0],ty:e.v[1]||"Book",st:e.v[2]||"To read",w:e.v[3]||"",np:0,pg:1,f:0}));delete S.coll.read;S.lib.forEach(b=>{if(b.f==null)b.f=b.np?1:0;b.ty=b.ty||"Book";b.w=b.w||"";b.pg=b.pg||1});S.ann=S.ann&&typeof S.ann=="object"?S.ann:{};Object.values(S.ann).forEach(a=>{a.n=Array.isArray(a.n)?a.n:[];a.i=a.i&&typeof a.i=="object"?a.i:{};a.b=Array.isArray(a.b)?a.b:[];a.t=Array.isArray(a.t)?a.t:[]});S.seen=S.seen&&typeof S.seen=="object"?S.seen:{};S.qc=S.qc&&typeof S.qc=="object"?S.qc:{};S.ts=+S.ts||0;Object.entries(S.prog).forEach(([k,v])=>{if(v>=4&&!S.rev[k])S.rev[k]={d:today(),n:1}});if(!S.syl||typeof S.syl!="object"||Array.isArray(S.syl))S.syl=JSON.parse(JSON.stringify(SYL))}
 let MC_={},PT=0,PD=0;function memo(n,f,a){const k=n+"|"+a+"|"+today();return k in MC_?MC_[k]:(MC_[k]=f(a))}
@@ -264,7 +264,7 @@ function show(p){if(p!="music")metStop();cur=p;$("sh").hidden=true;$("m").classL
 function render(){
  dockH();
  ap();$("ttl").innerHTML='<span id=cat>🐱</span> My Only Friend\'s Little Universe <small class=ver onclick=vt(this) title="tap to show build number">✦ v'+VER+'</small>';
- $("m").innerHTML=cur=="home"?home():cur=="study"?study()+labPromo():cur=="labs"?labs():cur=="syl"?syl():cur=="hob"?hob():cur=="lib"?lib():cur=="marks"?marks():cur=="stars"?stars():cur=="set"?sett():cur=="cal"?cal():coll(cur);if(cur=="chess")cdraw();tickCd();tickClk();sndB();chkProg();petAmb(cur=="home"&&petOn())}
+ $("m").innerHTML=cur=="home"?home():cur=="study"?study()+labPromo():cur=="labs"?labs():cur=="syl"?syl():cur=="hob"?hob():cur=="lib"?lib():cur=="marks"?marks():cur=="stars"?stars():cur=="set"?sett():cur=="cal"?cal():coll(cur);if(cur=="chess")cdraw();tickCd();tickClk();sndB();chkProg();petAmb(petOn())}
 
 /* Home */
 function planHtml(pl){return pl.map((x,i)=>`<div class=r><label class=chk><input type=checkbox ${x.d?"checked":""} onchange="tgl(${i})"><span style="${x.d?"text-decoration:line-through;opacity:.5":""}">${esc(x.t)}</span></label><button class=x onclick="dp(${i})" aria-label="Delete">✕</button></div>`).join("")||'<p class=mu>Nothing planned yet.</p>'}
@@ -560,7 +560,7 @@ const PPAL={pink:[["#ffd0e1","#ff8fbd"],["#ffe3ee","#ffa9ca"],["#ffc0d8","#f06fa
 const CONF=["#ff5e9c","#ffd54a","#5cc8ff","#7be495","#b388ff","#ff9f43"];
 const petReduced=()=>{try{return matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){return false}};
 const petPal=()=>document.documentElement.getAttribute("data-th")=="green"?"green":"pink";
-const petMax=()=>PW?90:45, petOn=()=>S.pet==null?!!PW:!!S.pet;
+const petMax=()=>PW?90:45, petOn=()=>S.pet!==0;
 function petSpr(pal,i){const key=pal+i;if(PET.spr[key])return PET.spr[key];const c=document.createElement("canvas");c.width=c.height=64;const x=c.getContext("2d"),col=PPAL[pal][i];
  const g=x.createLinearGradient(0,-26,0,26);g.addColorStop(0,col[1]);g.addColorStop(.5,col[0]);g.addColorStop(1,col[0]);
  x.translate(32,32);x.beginPath();x.moveTo(0,-26);x.bezierCurveTo(16,-24,24,-2,14,20);x.bezierCurveTo(11,26,5,28,0,22);x.bezierCurveTo(-5,28,-11,26,-14,20);x.bezierCurveTo(-24,-2,-16,-24,0,-26);x.closePath();
@@ -570,10 +570,10 @@ function petSpr(pal,i){const key=pal+i;if(PET.spr[key])return PET.spr[key];const
 function petCv(){if(!PET.cv){const c=document.createElement("canvas");c.id="petals";c.setAttribute("aria-hidden","true");document.body.appendChild(c);PET.cv=c;PET.cx=c.getContext("2d")}petSize();PET.cv.style.display="block"}
 function petSize(){const c=PET.cv;if(!c)return;PET.k=Math.max(1,Math.min(devicePixelRatio||1,PW?2:1.25));PET.W=innerWidth;PET.H=innerHeight;c.width=Math.round(PET.W*PET.k);c.height=Math.round(PET.H*PET.k)}
 function petNew(x,y,vx,vy,o){o=o||{};const R=Math.random,pal=petPal(),n=PPAL[pal].length;
- PET.ps.push({k:o.k||0,cc:o.cc,x:x,y:y,vx:vx,vy:vy,s:(o.size||1)*(o.k?9+R()*7:12+R()*14),rot:R()*6.28,vr:(R()-.5)*(o.k?9:4.5),ph:R()*6.28,fr:2+R()*3.2,sw:18+R()*46,sf:.7+R()*1.1,vt:(o.vt||50)+R()*50,spr:Math.floor(R()*n),pal:pal,age:0,life:o.life||(15+R()*6),a:1})}
+ PET.ps.push({k:o.k||0,cc:o.cc,x:x,y:y,vx:vx,vy:vy,al:o.al||1,s:(o.size||1)*(o.k?9+R()*7:12+R()*14),rot:R()*6.28,vr:(R()-.5)*(o.k?9:4.5),ph:R()*6.28,fr:2+R()*3.2,sw:18+R()*46,sf:.7+R()*1.1,vt:(o.vt||50)+R()*50,spr:Math.floor(R()*n),pal:pal,age:0,life:o.life||(15+R()*6),a:1})}
 function petSpawn(dt){const r=PET.rain,R=Math.random,mx=petMax();
  if(r){if(PET.t>=r.until)PET.rain=null;else{r.acc+=dt*r.rate;while(r.acc>=1){r.acc--;if(PET.ps.length<mx)petNew(R()*PET.W,-20,(R()-.5)*30,20+R()*40)}}}
- if(PET.amb&&PET.ps.length<Math.min(16,mx)){PET.aacc+=dt*.9;while(PET.aacc>=1){PET.aacc--;petNew(R()*PET.W*1.1-PET.W*.05,-20,(R()-.5)*20,15+R()*30,{size:.85,life:19})}}}
+ if(PET.amb&&!RD&&PET.ps.length<(PW?16:7)){PET.aacc+=dt*(PW?.9:.55);while(PET.aacc>=1){PET.aacc--;petNew(R()*PET.W*1.1-PET.W*.05,-20,(R()-.5)*20,15+R()*30,{size:.85,life:19,al:.85})}}}
 function petStep(dt){const ps=PET.ps,wind=Math.sin(PET.t*.35)*22+12;
  for(let i=ps.length-1;i>=0;i--){const p=ps[i];p.age+=dt;
   p.vx+=(wind+Math.sin(p.age*p.sf+p.ph)*p.sw-p.vx)*Math.min(1,dt*(p.k?1.2:1.6));
@@ -583,7 +583,7 @@ function petStep(dt){const ps=PET.ps,wind=Math.sin(PET.t*.35)*22+12;
   if(p.y>PET.H+40||p.a<=0||p.x<-80||p.x>PET.W+80)ps.splice(i,1)}}
 function petDraw(){const c=PET.cx,k=PET.k;c.setTransform(1,0,0,1,0,0);c.clearRect(0,0,PET.cv.width,PET.cv.height);
  PET.ps.forEach(p=>{const f=Math.cos(p.age*p.fr+p.ph),af=Math.abs(f),sx=Math.max(.16,af);
-  c.setTransform(k,0,0,k,0,0);c.translate(p.x,p.y);c.rotate(p.rot);c.scale(sx,.86+.14*af);c.globalAlpha=p.a*(.6+.4*af);
+  c.setTransform(k,0,0,k,0,0);c.translate(p.x,p.y);c.rotate(p.rot);c.scale(sx,.86+.14*af);c.globalAlpha=p.a*p.al*(.6+.4*af);
   if(p.k){c.fillStyle=p.cc;c.fillRect(-p.s*.45,-p.s*.22,p.s*.9,p.s*.44)}else c.drawImage(petSpr(p.pal,p.spr),-p.s/2,-p.s/2,p.s,p.s)});
  c.globalAlpha=1;c.setTransform(1,0,0,1,0,0)}
 function petLoop(now){PET.raf=0;if(!PET.ps.length&&!PET.rain&&!PET.amb){if(PET.cv){PET.cx.clearRect(0,0,PET.cv.width,PET.cv.height);PET.cv.style.display="none"}PET.last=0;return}
@@ -594,7 +594,7 @@ function petalFrom(r,n){if(petReduced())return;const R=Math.random;for(let i=0;i
 function petalRain(sec,rate){if(petReduced())return;PET.rain={until:PET.t+sec,rate:rate||8,acc:0};petGo()}
 function celeb(){if(petReduced())return;const R=Math.random,x=PET.W||innerWidth,y=(PET.H||innerHeight)*.78;petalBurst(x/2,y,30,{});
  for(let i=0;i<34;i++){const a=-Math.PI/2+(R()-.5)*Math.PI*1.5,sp=220+R()*380;petNew(x/2,y,Math.cos(a)*sp,Math.sin(a)*sp,{k:1,cc:CONF[i%CONF.length],life:7+R()*3,vt:90})}petGo()}
-function petAmb(on){PET.amb=on&&PW&&!petReduced()?1:0;if(PET.amb)petGo()}
+function petAmb(on){const was=PET.amb;PET.amb=on&&!petReduced()?1:0;if(PET.amb){if(!was&&!PET.ps.length){petCv();for(let i=0;i<(PW?6:3);i++)petNew(Math.random()*PET.W,Math.random()*PET.H*.8,(Math.random()-.5)*20,15+Math.random()*30,{size:.85,life:19,al:.85})}petGo()}}
 addEventListener("resize",()=>{if(PET.cv&&PET.cv.style.display!="none")petSize()});
 
 
@@ -865,7 +865,7 @@ let DK="";function dockH(){if(DK===cur)return;DK=cur;const D=[["home","🏠","Ho
 function sheet(){const s=$("sh");s.hidden=!s.hidden}
 
 /* Settings and backup */
-function sett(){return`<div class=card><h2>⚙ Settings</h2><label>Name</label><input id=sn value="${esc(S.name)}"><label>A message on the home screen</label><textarea id=nt rows=3>${esc(S.note)}</textarea><label class=chk style="margin-top:10px"><input type=checkbox ${S.cr?"checked":""} onchange="S.cr=this.checked;save()"> Turn on hobby credits (1 hour of study earns 30 minutes of free time)</label><label class=chk style="margin-top:10px"><input type=checkbox ${petOn()?"checked":""} onchange="S.pet=this.checked?1:0;save();petAmb(cur=='home'&&petOn())"> Gently falling petals on the home screen</label><button class=b onclick="saveSet()">Save</button></div>
+function sett(){return`<div class=card><h2>⚙ Settings</h2><label>Name</label><input id=sn value="${esc(S.name)}"><label>A message on the home screen</label><textarea id=nt rows=3>${esc(S.note)}</textarea><label class=chk style="margin-top:10px"><input type=checkbox ${S.cr?"checked":""} onchange="S.cr=this.checked;save()"> Turn on hobby credits (1 hour of study earns 30 minutes of free time)</label><label class=chk style="margin-top:10px"><input type=checkbox ${petOn()?"checked":""} onchange="S.pet=this.checked?1:0;save();if(!this.checked)PET.ps.length=0;petAmb(petOn())"> Gently falling petals (untick to stop them)</label><button class=b onclick="saveSet()">Save</button></div>
 <div class=card><h3>🎨 Theme</h3><div style="display:flex;gap:8px;flex-wrap:wrap">${[["pink","🌸 Pink"],["maroon","🍷 Maroon night"],["green","🌿 Forest green"],["auto","🌓 Auto: pink by day, maroon at night"]].map(([v,l])=>`<button class="${S.th==v?"b":"s"}" style="margin:0" onclick="setTh('${v}')">${l}</button>`).join("")}</div></div>
 <div class=card><h3>☁️ Cloud backup</h3><p class=mu style="margin:0">${CLOUD.url?"Your data is backed up automatically and stays in step across your devices. Nothing to do.":"Cloud backup isn't switched on in this copy yet. Your data is still saved on this device and copied to a daily backup here."}</p><p class=sm id=sy>${esc(SM)}</p></div>
 <div class=card><h3>💾 Backup</h3><p class=mu>Backups happen automatically. These buttons are only here if you ever want a copy of your own.</p><button class=b onclick="exp()">Download backup</button><label class=b2>Restore backup<input type=file accept=".json" hidden onchange="imp(event)"></label><button class=d onclick="rst()">Reset everything</button></div>`}
