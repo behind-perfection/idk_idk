@@ -196,7 +196,7 @@ button.pin{transition:none}button.pin:active{transform:translate(-50%,-100%)}
  if(!Element.prototype.remove)Element.prototype.remove=function(){if(this.parentNode)this.parentNode.removeChild(this)};
 })();
 /* Personalise before gifting: put her name and your message here (she can also change them in ⚙ Settings). */
-const GIFT={name:"",note:"Made with love, just for you ♥",
+const GIFT={name:"Meow Meow",note:"Made just for you",
  /* Hidden sorry note. Just says sorry. Change the word here if you like (\n = new line). She finds it by tapping the 🐱 in the title 5 times quickly.
     It opens one time only and is gone for good afterwards. To test it without using it up, open the app with #sorry-preview at the end of the address. */
  sorry:"Sorry.",
@@ -734,16 +734,17 @@ function ap(){const e=document.documentElement,h=new Date().getHours(),t=S.th=="
 function setTh(v){S.th=v;save();render()}
 const cyc=()=>setTh({auto:"pink",pink:"maroon",maroon:"green",green:"auto"}[S.th]||"pink");
 /* Power tier, cloud backup, library and reader */
-const CLOUD={url:"",id:"CHANGE-THIS-TO-A-LONG-RANDOM-TEXT"}; /* set once by the maker: Firebase Realtime Database URL and a long random id */
+const CLOUD={url:"",id:"ONPVimWqxf4pjClxq6Bi0H3jf8yOsQ9J"}; /* set once by the maker: Firebase Realtime Database URL and a long random id */
 let PW=(navigator.deviceMemory<=2||navigator.hardwareConcurrency<=4||(navigator.connection&&navigator.connection.saveData))?0:1;
 function FP(){if(document.hidden||!PW)return;let n=0;const t0=performance.now(),f=t=>{n++;if(t-t0<800)requestAnimationFrame(f);else if(n<30){PW=0;ap()}};requestAnimationFrame(f)}
 let SM="",sq;const sd=()=>{const e=$("sy");if(e)e.textContent=SM};
 function qs(){clearTimeout(sq);if(CLOUD.url)sq=setTimeout(sync,2500)}
 const emptyS=()=>!S.study.length&&!S.logs.length&&!S.hw.length&&!S.marks.length&&!S.lib.length&&!S.exams.length&&!S.pz.length&&!Object.keys(S.coll).length&&!Object.keys(S.prog).length;
 async function sync(){if(!CLOUD.url||!navigator.onLine)return;const u=CLOUD.url.replace(/\/$/,"")+"/u/"+CLOUD.id+".json";
- try{const g=await fetch(u);if(!g.ok)throw 0;const R=await g.json(),fr=!localStorage.getItem(K+"Y");
+ try{const fr=!localStorage.getItem(K+"Y"),t=await fetch(u.slice(0,-5)+"/ts.json");if(!t.ok)throw 0;const rt=await t.json();let R=null;
+  if(rt!=null&&(rt>S.ts||(fr&&emptyS()))){const g=await fetch(u);if(!g.ok)throw 0;R=await g.json()}
   if(R&&((R.ts||0)>S.ts||(fr&&emptyS()))){if(RD)return;try{localStorage.setItem(K+"P",JSON.stringify(S))}catch(e){}S=R;norm();localStorage.setItem(K,JSON.stringify(S));render()}
-  else if(!R||S.ts>(R.ts||0)){const p=await fetch(u,{method:"PUT",body:JSON.stringify(S)});if(!p.ok)throw 0}
+  else if(rt==null||S.ts>rt){const p=await fetch(u,{method:"PUT",body:JSON.stringify(S)});if(!p.ok)throw 0}
   localStorage.setItem(K+"Y","1");SM="Backed up ✔ "+new Date().toLocaleTimeString()}catch(e){SM="Backup paused, will retry when online"}sd()}
 const DB=()=>new Promise((ok,no)=>{const q=indexedDB.open("universe",1);q.onupgradeneeded=()=>q.result.createObjectStore("f");q.onsuccess=()=>ok(q.result);q.onerror=()=>no(q.error)});
 const dbp=async(m,k,v)=>{const d=await DB();return new Promise((ok,no)=>{const x=d.transaction("f",m=="get"?"readonly":"readwrite").objectStore("f"),q=m=="get"?x.get(k):m=="put"?x.put(v,k):x.delete(k);q.onsuccess=()=>ok(q.result);q.onerror=()=>no(q.error)})};
@@ -888,5 +889,5 @@ function fixLay(){FXT=0;try{
    c.setAttribute("data-fg",k+(i?1:0))})})}}catch(e){}}
 function fixQ(){if(!FXT&&(NFG||NAR))FXT=setTimeout(fixLay,60)}
 if(NFG||NAR){new MutationObserver(fixQ).observe(document.body,{childList:true,subtree:true});addEventListener("resize",fixQ);addEventListener("orientationchange",fixQ);fixQ()}
-$("ttl").addEventListener("click",sorryTap);if(location.hash=="#sorry-preview")setTimeout(sorryOpen,700);setTimeout(FP,1500);setTimeout(()=>$("m").classList.remove("pg"),900);setInterval(()=>{if(!document.hidden){tickCd();tickClk()}},1000);sync();setInterval(sync,12e4);addEventListener("online",sync);document.addEventListener("visibilitychange",()=>{if(document.hidden){metStop(1);flush()}else{sync();if(T.run)tick();ap()}});setInterval(ap,6e4);$("m").onclick=()=>{$("sh").hidden=true};let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{if(RD&&!RD.busy)rdPage(RD.n)},300)});
+$("ttl").addEventListener("click",sorryTap);if(location.hash=="#sorry-preview")setTimeout(sorryOpen,700);setTimeout(FP,1500);setTimeout(()=>$("m").classList.remove("pg"),900);setInterval(()=>{if(!document.hidden){tickCd();tickClk()}},1000);sync();setInterval(sync,45e3);addEventListener("online",sync);document.addEventListener("visibilitychange",()=>{if(document.hidden){metStop(1);flush()}else{sync();if(T.run)tick();ap()}});setInterval(ap,6e4);$("m").onclick=()=>{$("sh").hidden=true};let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{if(RD&&!RD.busy)rdPage(RD.n)},300)});
 </script></body></html>
