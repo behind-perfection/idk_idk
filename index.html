@@ -9,7 +9,7 @@
 body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--tx);line-height:1.45}
 h1,h2,h3,.big,.pomo{font-family:Georgia,"Times New Roman",serif}
 header{background:linear-gradient(135deg,#ff7fb5,#b3135a);color:#fff;padding:14px 4vw 8px;padding-top:max(14px,env(safe-area-inset-top));position:sticky;top:0;z-index:5;box-shadow:0 3px 14px #b3135a55}
-h1{margin:0 0 8px;font-size:clamp(21px,5vw,30px);font-weight:700}
+h1{margin:0 0 8px;font-size:24px;font-size:clamp(21px,5vw,30px);font-weight:700}
 nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
 nav button{white-space:nowrap;border:0;border-radius:99px;padding:8px 13px;font:inherit;font-weight:700;background:#ffffff30;color:#fff;cursor:pointer}
 nav button.on{background:#fff;color:#b3135a}
@@ -17,7 +17,7 @@ main{max-width:900px;margin:18px auto 50px;padding:0 4vw}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:16px;margin-bottom:14px;box-shadow:0 6px 20px #d6246e14}
 h2,h3{margin:0 0 8px}h2{font-size:22px}h3{font-size:17px}
 .mu{color:var(--mu)}.sm{font-size:12px;color:var(--mu)}.big{font-size:26px;font-weight:700}
-.g2,.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px}.full{grid-column:1/-1}
+.g2,.fg{display:grid;grid-template-columns:1fr 1fr;grid-gap:12px;gap:12px}.full{grid-column:1/-1}
 label{display:block;font-size:12px;font-weight:700;color:var(--mu);margin:4px 0 3px}
 input,select,textarea{width:100%;font:inherit;padding:9px 11px;border:1px solid var(--bd);border-radius:10px;background:#fffafc;color:var(--tx)}
 input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--ac);outline-offset:1px}
@@ -34,7 +34,7 @@ button.d{background:#fff0f0;color:#b42318}
 .pomo{font-size:52px;font-weight:700;text-align:center;font-variant-numeric:tabular-nums}
 .chk{display:flex;gap:8px;align-items:center;margin:0;font-size:15px;font-weight:400;color:inherit}.chk input{width:auto}
 .cbd{display:grid;grid-template-columns:repeat(8,1fr);max-width:480px;margin:auto;border-radius:12px;overflow:hidden;border:3px solid #b3135a;touch-action:manipulation}
-.sq{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:clamp(24px,8.5vw,46px);cursor:pointer;user-select:none;position:relative}
+.sq{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:34px;font-size:clamp(24px,8.5vw,46px);cursor:pointer;user-select:none;position:relative}
 .sq.lt{background:#ffeaf3}.sq.dk{background:#e58fb4}.sq.lm{background:#ffd54f99}.sq.sl{background:#ffb300bb}
 .sq.tg::after{content:"";width:28%;height:28%;border-radius:50%;background:#b3135a88;position:absolute}
 #cb{position:relative;overflow:hidden}
@@ -86,11 +86,11 @@ button{transition:transform .12s,background .15s}button:active{transform:scale(.
 header{display:flex;align-items:center;justify-content:space-between;padding-bottom:12px}h1{margin:0}
 .th{background:#ffffff30;border:0;border-radius:99px;width:38px;height:38px;font-size:18px;cursor:pointer;flex:none}
 main{padding-bottom:96px}
-#dock{position:fixed;left:0;right:0;bottom:0;z-index:6;display:flex;gap:2px;background:var(--card);border-top:1px solid var(--bd);padding:6px 6px max(6px,env(safe-area-inset-bottom));box-shadow:0 -6px 20px #0002}
+#dock{position:fixed;left:0;right:0;bottom:0;z-index:6;display:flex;gap:2px;background:var(--card);border-top:1px solid var(--bd);padding:6px;padding-bottom:max(6px,env(safe-area-inset-bottom));box-shadow:0 -6px 20px #0002}
 #dock button{flex:1;border:0;background:none;color:var(--mu);font:600 11px system-ui,sans-serif;padding:4px 0;cursor:pointer;border-radius:14px}
 #dock b{display:block;font-size:20px;font-weight:400}
 #dock button.on{color:var(--ac);background:var(--soft)}
-#sh{position:fixed;left:8px;right:8px;bottom:calc(72px + env(safe-area-inset-bottom));z-index:7;background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:10px;display:grid;grid-template-columns:repeat(2,1fr);gap:6px;max-height:60vh;overflow:auto;box-shadow:0 10px 30px #0004}
+#sh{position:fixed;left:8px;right:8px;bottom:72px;bottom:calc(72px + env(safe-area-inset-bottom));z-index:7;background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:10px;display:grid;grid-template-columns:repeat(2,1fr);gap:6px;max-height:60vh;overflow:auto;box-shadow:0 10px 30px #0004}
 #sh[hidden]{display:none}
 #sh button{border:0;border-radius:12px;padding:11px;font:600 14px system-ui,sans-serif;background:var(--soft);color:var(--sc);text-align:left;cursor:pointer}
 #sh button.on{background:var(--ac);color:#fff}
@@ -102,22 +102,22 @@ main{padding-bottom:96px}
 .bc{position:relative;background:var(--card);border:1px solid var(--bd);border-radius:6px 14px 14px 6px;padding:12px 10px 10px 18px;cursor:pointer;display:flex;flex-direction:column;gap:6px;min-height:150px;overflow:hidden;word-break:break-word}
 .bc .sp{position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--c)}
 .bc b{font-family:Georgia,serif;font-size:15px;padding-right:14px}
-#rd{position:fixed;inset:0;z-index:20;background:var(--bg);display:flex;flex-direction:column}
+#rd{position:fixed;top:0;right:0;bottom:0;left:0;z-index:20;background:var(--bg);display:flex;flex-direction:column}
 .rb{display:flex;align-items:center;gap:8px;padding:8px 10px;padding-top:max(8px,env(safe-area-inset-top));background:var(--card);border-bottom:1px solid var(--bd)}
 .rt{flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:Georgia,serif}
 #rs{flex:1;overflow:auto;padding:4px;display:flex;justify-content:center;align-items:flex-start;-webkit-overflow-scrolling:touch}
 #rw{position:relative;line-height:0;box-shadow:0 4px 18px #0004}
 #pc,#ic{display:block}#ic{position:absolute;left:0;top:0}
 #rw.nt #pc{filter:invert(1) hue-rotate(180deg)}
-#rn{position:absolute;inset:0;pointer-events:none}
+#rn{position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none}
 .pin{position:absolute;pointer-events:auto;transform:translate(-50%,-100%);border:0;background:none;font-size:22px;cursor:pointer;line-height:1}
-.rt2{display:flex;gap:4px;align-items:center;justify-content:center;flex-wrap:wrap;padding:6px 6px max(6px,env(safe-area-inset-bottom));background:var(--card);border-top:1px solid var(--bd)}
+.rt2{display:flex;gap:4px;align-items:center;justify-content:center;flex-wrap:wrap;padding:6px;padding-bottom:max(6px,env(safe-area-inset-bottom));background:var(--card);border-top:1px solid var(--bd)}
 .rt2 button{border:0;background:var(--soft);border-radius:10px;width:40px;height:40px;font-size:18px;cursor:pointer}
 .rt2 button.on{background:var(--ac)}
 .dot{width:22px;height:22px;border-radius:50%;display:inline-block;margin:0 3px;cursor:pointer;border:2px solid var(--card)}.dot.sel{outline:2px solid var(--tx)}
 .met{display:flex;flex-direction:column;align-items:center;gap:10px;padding:6px 0 10px}
 .mst{position:relative;width:96px;height:120px}
-.mst::before{content:"";position:absolute;inset:0;background:var(--soft);clip-path:polygon(32% 0,68% 0,100% 100%,0 100%)}
+.mst::before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;background:var(--soft);clip-path:polygon(32% 0,68% 0,100% 100%,0 100%)}
 .mp{position:absolute;left:50%;bottom:10px;width:4px;height:92px;margin-left:-2px;background:var(--ac);border-radius:2px;transform-origin:50% 100%;will-change:transform}
 .mp i{position:absolute;left:-8px;top:16px;width:20px;height:14px;background:var(--tx);border-radius:4px}
 .md{display:flex;gap:8px}.md b{width:14px;height:14px;border-radius:50%;background:var(--soft);transition:transform .08s,background .08s}
@@ -137,23 +137,24 @@ main{padding-bottom:96px}
 #rsv{min-width:62px;text-align:right}
 .ptx{position:absolute;pointer-events:auto;line-height:1.2;white-space:pre-wrap;max-width:70%;font-family:Georgia,serif;font-weight:700;cursor:pointer;text-shadow:0 0 3px #fffc;word-break:break-word}
 #rd[data-t=p] .pin,#rd[data-t=h] .pin,#rd[data-t=e] .pin,#rd[data-t=p] .ptx,#rd[data-t=h] .ptx,#rd[data-t=e] .ptx{pointer-events:none}
-#ne{position:fixed;inset:0;z-index:40;background:#0008;display:flex;align-items:center;justify-content:center;padding:12px}
-.nb{background:var(--card);color:var(--tx);border-radius:18px;padding:16px;width:min(440px,100%);max-height:92vh;overflow:auto;box-shadow:0 10px 40px #0006}
+#ne{position:fixed;top:0;right:0;bottom:0;left:0;z-index:40;background:#0008;display:flex;align-items:center;justify-content:center;padding:12px}
+.nb{background:var(--card);color:var(--tx);border-radius:18px;padding:16px;width:100%;max-width:440px;max-height:92vh;overflow:auto;box-shadow:0 10px 40px #0006}
 .nb textarea{font-size:16px}
-#rpn{position:absolute;inset:0;z-index:3;background:var(--bg);display:flex;flex-direction:column}
+#rpn{position:absolute;top:0;right:0;bottom:0;left:0;z-index:3;background:var(--bg);display:flex;flex-direction:column}
 .ph{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;padding-top:max(10px,env(safe-area-inset-top));background:var(--card);border-bottom:1px solid var(--bd)}
 .pb2{flex:1;overflow:auto;padding:12px 14px 30px;-webkit-overflow-scrolling:touch}
 
-#cat{cursor:default;user-select:none;-webkit-user-select:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-#sorry{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:18px;overflow:auto;background:radial-gradient(circle at 50% 25%,#ff7fb5ee,#3d0c1af2)}
-.sv{width:min(400px,100%);text-align:center;color:#fff}
+#cat{display:inline-block;padding:10px 12px;margin:-10px -8px;cursor:default;user-select:none;-webkit-user-select:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#sorry{position:fixed;top:0;right:0;bottom:0;left:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:18px;overflow:auto;background:radial-gradient(circle at 50% 25%,#ff7fb5ee,#3d0c1af2)}
+.sv{width:100%;max-width:400px;text-align:center;color:#fff}
 .en{position:relative;width:230px;height:156px;margin:0 auto 18px;background:#ffc2db;border-radius:6px 6px 14px 14px;box-shadow:0 12px 32px #0007;cursor:pointer;perspective:600px}
-.ef{position:absolute;inset:0;border-radius:inherit;background:#ff8fbd;clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%)}
+.ef{position:absolute;top:0;right:0;bottom:0;left:0;border-radius:inherit;background:#ff8fbd;clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%)}
 .fl{position:absolute;left:0;right:0;top:0;height:92px;background:#ff5f9f;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:50% 0;transition:transform .55s ease-in,opacity .3s .3s;z-index:2}
 .fl.op{transform:rotateX(180deg);opacity:0}
 .hs{position:absolute;left:50%;top:70px;transform:translateX(-50%);z-index:3;color:#fff;font-size:22px;text-shadow:0 2px 6px #0006}
 .pp{background:#fffaf3;color:#3a1727;border-radius:12px;padding:22px 20px;text-align:left;font:17px/1.65 Georgia,"Times New Roman",serif;white-space:pre-wrap;max-height:62vh;overflow:auto;box-shadow:0 12px 36px #0006;opacity:0;transform:translateY(34px);transition:opacity .7s,transform .7s}
 .pp.on{opacity:1;transform:none}
+.pp.big{text-align:center;font-size:44px;font-weight:700;padding:46px 20px;color:#c2185b}
 .pp.vn{opacity:0;filter:blur(9px);transform:translateY(-36px) scale(.96);transition:opacity 1.6s ease-in,filter 1.6s,transform 1.6s}
 @media(prefers-reduced-motion:no-preference){.en:not(:active){animation:sw 2.4s ease-in-out infinite}@keyframes sw{50%{transform:translateY(-6px) rotate(-1.5deg)}}}
 
@@ -161,25 +162,52 @@ main{padding-bottom:96px}
 #rd[data-t=r] .pz,#rd[data-t=r] .pcl,#rd[data-t=e] .pz,#rd[data-t=e] .pcl,#rd[data-t=n] .pz,#rd[data-t=n] .pcl,#rd[data-t=t] .pz{display:none}
 button.pin{transition:none}button.pin:active{transform:translate(-50%,-100%)}
 .rgi{-moz-appearance:textfield}.rgi::-webkit-inner-spin-button,.rgi::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+
+#petals{position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:70;display:none}
+.ucb{display:inline-block;background:#ffd54a;color:#3b2a00;border:2px solid #3b2a00;border-radius:8px;padding:5px 12px;font-weight:800;font-size:12px;letter-spacing:.05em;margin-bottom:8px}
+.uc{position:relative;overflow:hidden;padding-top:24px}
+.uc::before,.lab::before{content:"";position:absolute;left:0;right:0;top:0;height:9px;background:repeating-linear-gradient(45deg,#ffd54a 0,#ffd54a 12px,#3b2a00 12px,#3b2a00 24px)}
+.ucs{display:inline-block;font-style:normal;font-size:11px;font-weight:700;background:#fff3c4;color:#5c4400;border:1px solid #e0b73a;border-radius:20px;padding:2px 8px;line-height:1.3}
+.lg{display:grid;grid-template-columns:repeat(2,1fr);grid-gap:10px;gap:10px;margin-top:8px}
+.lab{position:relative;overflow:hidden;background:var(--card);border:1px dashed var(--bd);border-radius:14px;padding:18px 10px 10px;text-align:left;cursor:not-allowed;opacity:.85;-webkit-filter:grayscale(.6);filter:grayscale(.6);-webkit-tap-highlight-color:transparent}
+.lab::before{height:5px}
+.lab .lk{position:absolute;right:8px;top:12px;font-style:normal;font-size:13px}
+.lab .li{font-size:28px;line-height:1.2;margin-bottom:2px}
+.lab b{display:block;font-size:14px;line-height:1.25;padding-right:14px}
+.lab .sm{display:block;margin:4px 0 8px}
+#lbm{position:fixed;top:0;right:0;bottom:0;left:0;z-index:45;background:#0008;display:flex;align-items:center;justify-content:center;padding:12px}
+@keyframes cw{25%{-webkit-transform:rotate(-16deg) scale(1.2);transform:rotate(-16deg) scale(1.2)}75%{-webkit-transform:rotate(16deg) scale(1.2);transform:rotate(16deg) scale(1.2)}}
+#cat.cw{animation:cw .35s ease-out}
 </style></head>
 <body>
 <header><h1 id="ttl"></h1><div style="display:flex;gap:6px"><button class=th id=sb onclick="sndT()" aria-label="Sound on or off">🔊</button><button class=th onclick="cyc()" aria-label="Change theme">🎨</button></div></header>
 <div id=ts hidden></div><main id="m" class="pg"></main><div id=dock></div><div id=sh hidden></div>
 <script>
 "use strict";
+/* Android 9+ support: fill in newer browser features when an older WebView lacks them */
+(function(){var P=Array.prototype,O=Object,S=String.prototype;
+ if(!Blob.prototype.arrayBuffer)Blob.prototype.arrayBuffer=function(){var b=this;return new Promise(function(ok,no){var r=new FileReader();r.onload=function(){ok(r.result)};r.onerror=function(){no(r.error)};r.readAsArrayBuffer(b)})};
+ if(!Blob.prototype.text)Blob.prototype.text=function(){var b=this;return new Promise(function(ok,no){var r=new FileReader();r.onload=function(){ok(r.result)};r.onerror=function(){no(r.error)};r.readAsText(b)})};
+ if(!P.flat)O.defineProperty(P,"flat",{configurable:true,writable:true,value:function(d){d=d===undefined?1:d;return d<1?P.slice.call(this):P.reduce.call(this,function(a,v){return a.concat(Array.isArray(v)&&d>1?P.flat.call(v,d-1):v)},[])}});
+ if(!P.flatMap)O.defineProperty(P,"flatMap",{configurable:true,writable:true,value:function(f,t){return P.map.call(this,f,t).flat()}});
+ if(!O.fromEntries)O.fromEntries=function(it){var o={};for(var e of it)o[e[0]]=e[1];return o};
+ if(!S.replaceAll)S.replaceAll=function(a,b){return a instanceof RegExp?this.replace(a,b):this.split(a).join(b)};
+ if(!Promise.prototype.finally)Promise.prototype.finally=function(f){return this.then(function(v){return Promise.resolve(f()).then(function(){return v})},function(e){return Promise.resolve(f()).then(function(){throw e})})};
+ if(!Element.prototype.remove)Element.prototype.remove=function(){if(this.parentNode)this.parentNode.removeChild(this)};
+})();
 /* Personalise before gifting: put her name and your message here (she can also change them in ⚙ Settings). */
 const GIFT={name:"",note:"Made with love, just for you ♥",
- /* Hidden sorry note. Write your own words here (\n = new line). She finds it by tapping the 🐱 in the title 5 times quickly.
+ /* Hidden sorry note. Just says sorry. Change the word here if you like (\n = new line). She finds it by tapping the 🐱 in the title 5 times quickly.
     It opens one time only and is gone for good afterwards. To test it without using it up, open the app with #sorry-preview at the end of the address. */
- sorry:"I'm sorry. I know I hurt you, and that was never what I wanted.\n\nYou matter a lot to me, and I don't want one mistake of mine to get in the way of that. I'm not asking you to forget it. I'm only asking for a chance to make it right.\n\nThank you for reading this. Whenever you're ready, I'm here.",
- from:"— from me ♥"};
+ sorry:"Sorry.",
+ from:""};
 const K="pinkTrackerV1",$=id=>document.getElementById(id);
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 const pad=n=>String(n).padStart(2,"0"),dk=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()),today=()=>dk(new Date());
 const pick=a=>a[Math.floor(Math.random()*a.length)],sum=o=>Object.values(o).reduce((a,b)=>a+b,0),hrs=m=>(m/60).toFixed(1)+"h";
 const opt=(a,v)=>a.map(o=>`<option ${o==v?"selected":""}>${esc(o)}</option>`).join("");
 let S,cur="home";
-const VER=13,VM=46,vt=e=>{const o=e.dataset.o;e.textContent="✦ v"+VER+(o?"":" · v"+VM+" for the maker");e.dataset.o=o?"":"1"};
+const VER=18,VM=51,vt=e=>{const o=e.dataset.o;e.textContent="✦ v"+VER+(o?"":" · v"+VM+" for the maker");e.dataset.o=o?"":"1"};
 function load(){let r=null;try{r=localStorage.getItem(K)}catch(e){}try{S=JSON.parse(r)||{}}catch(e){S={}}
  if(!Object.keys(S).length){try{S=JSON.parse(localStorage.getItem(K+"B"))||{}}catch(e){S={}}}
  else if(S.v!=null&&S.v!=VER){try{localStorage.setItem(K+"B",r)}catch(e){}}
@@ -220,7 +248,7 @@ quotes:{t:"💬 Quotes & Lyrics",f:[["Line","area"],["From (book, song, drama)"]
 vision:{t:"🌟 Vision Board",f:[["Goal or dream"],["Why it matters","area"],["Status","sel",["Dreaming","Working on it","Achieved"]]],pr:["Learn a full song on guitar","Finish a whole sketchbook","Win a chess tournament","Publish my poems","Visit a place I always dreamed of"],st:L=>L.filter(e=>e.v[2]=="Achieved").length+" achieved · "+L.filter(e=>e.v[2]=="Working on it").length+" in progress"},
 dream:{t:"☁️ Daydreams",f:[["Title"],["The story","area"]],pr:["A door appears in my room. Where does it go?","Gravity is half as strong today…","I can hear everyone's favourite song…"],st:L=>L.length+" daydreams saved"}
 };
-const NAV=[["home","🏠 Home"],["cal","📅 Calendar"],["study","📚 Study"],["syl","📘 Syllabus"],["hob","⏱ Hobby Time"],["lib","📖 Library"],["marks","📈 Marks"],["stars","✨ Constellations"],...Object.keys(C).map(k=>[k,C[k].t]),["set","⚙ Settings"]];
+const NAV=[["home","🏠 Home"],["cal","📅 Calendar"],["study","📚 Study"],["labs","🧪 Virtual Labs 🚧"],["syl","📘 Syllabus"],["hob","⏱ Hobby Time"],["lib","📖 Library"],["marks","📈 Marks"],["stars","✨ Constellations"],...Object.keys(C).map(k=>[k,C[k].t]),["set","⚙ Settings"]];
 
 function moon(d){const syn=29.530588853,age=(((d.getTime()-Date.UTC(2000,0,6,18,14))/864e5)%syn+syn)%syn,i=Math.floor(age/syn*8+.5)%8;
  return[["🌑","🌒","🌓","🌔","🌕","🌖","🌗","🌘"][i],["New moon","Waxing crescent","First quarter","Waxing gibbous","Full moon","Waning gibbous","Last quarter","Waning crescent"][i],Math.round((1-Math.cos(2*Math.PI*age/syn))/2*100)]}
@@ -236,7 +264,7 @@ function show(p){if(p!="music")metStop();cur=p;$("sh").hidden=true;$("m").classL
 function render(){
  dockH();
  ap();$("ttl").innerHTML='<span id=cat>🐱</span> My Only Friend\'s Little Universe <small class=ver onclick=vt(this) title="tap to show build number">✦ v'+VER+'</small>';
- $("m").innerHTML=cur=="home"?home():cur=="study"?study():cur=="syl"?syl():cur=="hob"?hob():cur=="lib"?lib():cur=="marks"?marks():cur=="stars"?stars():cur=="set"?sett():cur=="cal"?cal():coll(cur);if(cur=="chess")cdraw();tickCd();tickClk();sndB();chkProg()}
+ $("m").innerHTML=cur=="home"?home():cur=="study"?study()+labPromo():cur=="labs"?labs():cur=="syl"?syl():cur=="hob"?hob():cur=="lib"?lib():cur=="marks"?marks():cur=="stars"?stars():cur=="set"?sett():cur=="cal"?cal():coll(cur);if(cur=="chess")cdraw();tickCd();tickClk();sndB();chkProg();petAmb(cur=="home"&&petOn())}
 
 /* Home */
 function planHtml(pl){return pl.map((x,i)=>`<div class=r><label class=chk><input type=checkbox ${x.d?"checked":""} onchange="tgl(${i})"><span style="${x.d?"text-decoration:line-through;opacity:.5":""}">${esc(x.t)}</span></label><button class=x onclick="dp(${i})" aria-label="Delete">✕</button></div>`).join("")||'<p class=mu>Nothing planned yet.</p>'}
@@ -381,7 +409,7 @@ function cdraw(){const el=$("cb");if(!el)return;const g=G.g,an=G.anim,L=G.last,t
  const win=an&&G.over&&/wins|solved/.test(G.over)&&(G.mode=="pvp"||G.mode=="puzzle"||G.over.startsWith(G.me=="w"?"White":"Black")),
  msg=G.over||G.msg||(G.busy?BT:(g.t=="w"?"White":"Black")+" to move"+(G.chk?" · Check!":""));
  el.innerHTML=`<div class="cbd${an==2?" nw":""}">${h}</div><p id=cm class=big style="text-align:center;font-size:18px;margin:10px 0 0">${msg}</p>`+(G.over&&G.mode=="bot"&&!G.saved?`<div style="text-align:center"><button class=b onclick="csave()">Save result to my chess log</button></div>`:"")+
-  (win?Array.from({length:16},(_,i)=>`<span class=cf style="left:${(i*6+Math.random()*4)|0}%;animation-delay:${(Math.random()*.8).toFixed(2)}s">${["🎉","🌸","✨","💖"][i%4]}</span>`).join(""):"")}
+  (win&&!G.cel?(G.cel=1,celeb(),""):"")}
 function cc(i){const g=G.g;if(G.over||G.busy||(G.mode=="bot"&&g.t!=G.me))return;G.msg="";G.hint=-1;const p=g.b[i];
  if(G.sel>=0){const m=legal(g).find(m=>m[0]==G.sel&&m[1]==i);if(m){if(G.mode!="puzzle")return cplay(m);
   const n=make(g,m);if(!legal(n).length&&inchk(n)){G.g=n;G.last=m;G.chk=1;G.sel=-1;G.anim=1;G.over="Checkmate! Puzzle solved 🎉";sfx("win");if(!S.pz.includes(today())){S.pz.push(today());save()}}else{G.msg="Not checkmate. Try another move 🤔";G.sel=-1;sfx("err")}return cdraw()}}
@@ -506,21 +534,147 @@ function claimQ(){if(S.qc[today()]!=null||quests().some(x=>x.p<x.g))return;const
 
 
 /* Hidden sorry note: tap the cat 5 times, open the envelope once, and it is gone for good */
-const sorryGone=()=>{try{if(localStorage.getItem(K+"X"))return 1}catch(e){}return S&&S.sg?1:0};
+/* Edition of the note. Raise this number to bring the note back (re-arm it) for everyone. Editions 1 and 2 were used up during testing. */
+const SORRY_ED=3;
+const sorryGone=()=>{try{if(localStorage.getItem(K+"X"+SORRY_ED))return 1}catch(e){}return S&&S.sgs&&S.sgs[SORRY_ED]?1:0};
 let SOT=[],SORY=0,SORV=0;
-function sorryTap(e){if(!e.target.closest||!e.target.closest("#cat"))return;const n=Date.now();SOT=SOT.filter(x=>n-x<3000);SOT.push(n);if(SOT.length>=5){SOT=[];sorryOpen()}}
+function sorryTap(e){if(!e.target.closest||!e.target.closest("#cat"))return;const c=document.getElementById("cat");if(c){c.classList.remove("cw");void c.offsetWidth;c.classList.add("cw")}const n=Date.now();SOT=SOT.filter(x=>n-x<4000);SOT.push(n);if(SOT.length>=5){SOT=[];sorryOpen()}}
 function sorryOpen(){const pv=location.hash=="#sorry-preview";if($("sorry"))return;if(!pv&&(!(GIFT.sorry||"").trim()||sorryGone()))return;SORY=0;SORV=0;
  const e=document.createElement("div");e.id="sorry";
- const to=S.name?"Dear "+S.name+",\n\n":"",fr=GIFT.from?"\n\n"+GIFT.from:"";
+ const to="",fr=GIFT.from?"\n\n"+GIFT.from:"";
  e.innerHTML=`<div class=sv><div id=sen><div class=en onclick="sorryReveal(${pv?1:0})" role=button tabindex=0 aria-label="Open the envelope" onkeydown="if(event.key=='Enter'||event.key==' ')sorryReveal(${pv?1:0})"><div class=ef></div><div class=fl id=sfl></div><span class=hs>♥</span></div><p style="margin:0;font:700 20px Georgia,serif">A note from me, just for you 💌</p><p style="margin:6px 0 0;color:#ffd9e8;font-size:13px">Tap the envelope to open it. It can only be opened once, so open it when you're ready.${pv?" (Preview: this won't use it up.)":""}</p></div>
- <div id=spw hidden><div class=pp id=spp>${esc(to+(GIFT.sorry||"")+fr)}</div><button class=b style="margin:14px 0 0" onclick="sorryVanish()">I've read it 🌸</button></div></div>`;
+ <div id=spw hidden><div class="pp big" id=spp>${esc(to+(GIFT.sorry||"")+fr)}</div><button class=b style="margin:14px 0 0" onclick="sorryVanish()">I've read it 🌸</button></div></div>`;
  document.body.appendChild(e)}
-function sorryReveal(pv){if(SORY)return;SORY=1;if(!pv){S.sg=Date.now();try{localStorage.setItem(K+"X","1")}catch(x){}save();flush()}
- sfx("spark");$("sfl").classList.add("op");
+function sorryReveal(pv){if(SORY)return;SORY=1;if(!pv){S.sgs=S.sgs||{};S.sgs[SORRY_ED]=Date.now();try{localStorage.setItem(K+"X"+SORRY_ED,"1")}catch(x){}save();flush()}
+ sfx("spark");$("sfl").classList.add("op");{const q=document.querySelector("#sorry .en");if(q){const b=q.getBoundingClientRect();petalBurst(b.left+b.width/2,b.top+34,18,{size:.9})}}
  setTimeout(()=>{const a=$("sen"),w=$("spw");if(!a||!w)return;a.hidden=true;w.hidden=false;requestAnimationFrame(()=>requestAnimationFrame(()=>{const p=$("spp");if(p)p.classList.add("on")}))},650)}
 function sorryVanish(){if(SORV)return;SORV=1;const e=$("sorry"),p=$("spp");if(!e||!p)return;p.classList.add("vn");const w=$("spw").querySelector("button");if(w)w.style.visibility="hidden";
- e.insertAdjacentHTML("beforeend",Array.from({length:18},(_,i)=>`<span class=cf style="left:${(i*5.5+Math.random()*4)|0}%;animation-delay:${(Math.random()*.9).toFixed(2)}s">🌸</span>`).join(""));
+ {const b=p.getBoundingClientRect();petalFrom(b,56);petalRain(2.6,9)}
  sfx("chime");setTimeout(()=>{e.remove();if(location.hash!="#sorry-preview")GIFT.sorry="";toast("The note has vanished, but what it meant stays 🌸")},2000)}
+
+
+/* Falling petals: a small canvas physics engine (wind, sway, tumbling flips, spin, soft fade) */
+const PET={ps:[],cv:null,cx:null,W:0,H:0,k:1,raf:0,t:0,last:0,rain:null,amb:0,aacc:0,spr:{}};
+const PPAL={pink:[["#ffd0e1","#ff8fbd"],["#ffe3ee","#ffa9ca"],["#ffc0d8","#f06fa5"],["#fff2f7","#ffc4db"],["#ffb2cf","#e0508f"]],
+ green:[["#e3f6d4","#9bd37b"],["#d2efbf","#7fc15b"],["#f0fadf","#b6e08f"],["#c9eaa9","#6fb34b"]]};
+const CONF=["#ff5e9c","#ffd54a","#5cc8ff","#7be495","#b388ff","#ff9f43"];
+const petReduced=()=>{try{return matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){return false}};
+const petPal=()=>document.documentElement.getAttribute("data-th")=="green"?"green":"pink";
+const petMax=()=>PW?90:45, petOn=()=>S.pet==null?!!PW:!!S.pet;
+function petSpr(pal,i){const key=pal+i;if(PET.spr[key])return PET.spr[key];const c=document.createElement("canvas");c.width=c.height=64;const x=c.getContext("2d"),col=PPAL[pal][i];
+ const g=x.createLinearGradient(0,-26,0,26);g.addColorStop(0,col[1]);g.addColorStop(.5,col[0]);g.addColorStop(1,col[0]);
+ x.translate(32,32);x.beginPath();x.moveTo(0,-26);x.bezierCurveTo(16,-24,24,-2,14,20);x.bezierCurveTo(11,26,5,28,0,22);x.bezierCurveTo(-5,28,-11,26,-14,20);x.bezierCurveTo(-24,-2,-16,-24,0,-26);x.closePath();
+ x.fillStyle=g;x.fill();x.lineWidth=1;x.strokeStyle="rgba(214,36,110,.28)";x.stroke();
+ x.beginPath();x.moveTo(0,-20);x.quadraticCurveTo(1,0,0,16);x.strokeStyle="rgba(214,36,110,.22)";x.stroke();
+ return PET.spr[key]=c}
+function petCv(){if(!PET.cv){const c=document.createElement("canvas");c.id="petals";c.setAttribute("aria-hidden","true");document.body.appendChild(c);PET.cv=c;PET.cx=c.getContext("2d")}petSize();PET.cv.style.display="block"}
+function petSize(){const c=PET.cv;if(!c)return;PET.k=Math.max(1,Math.min(devicePixelRatio||1,PW?2:1.25));PET.W=innerWidth;PET.H=innerHeight;c.width=Math.round(PET.W*PET.k);c.height=Math.round(PET.H*PET.k)}
+function petNew(x,y,vx,vy,o){o=o||{};const R=Math.random,pal=petPal(),n=PPAL[pal].length;
+ PET.ps.push({k:o.k||0,cc:o.cc,x:x,y:y,vx:vx,vy:vy,s:(o.size||1)*(o.k?9+R()*7:12+R()*14),rot:R()*6.28,vr:(R()-.5)*(o.k?9:4.5),ph:R()*6.28,fr:2+R()*3.2,sw:18+R()*46,sf:.7+R()*1.1,vt:(o.vt||50)+R()*50,spr:Math.floor(R()*n),pal:pal,age:0,life:o.life||(15+R()*6),a:1})}
+function petSpawn(dt){const r=PET.rain,R=Math.random,mx=petMax();
+ if(r){if(PET.t>=r.until)PET.rain=null;else{r.acc+=dt*r.rate;while(r.acc>=1){r.acc--;if(PET.ps.length<mx)petNew(R()*PET.W,-20,(R()-.5)*30,20+R()*40)}}}
+ if(PET.amb&&PET.ps.length<Math.min(16,mx)){PET.aacc+=dt*.9;while(PET.aacc>=1){PET.aacc--;petNew(R()*PET.W*1.1-PET.W*.05,-20,(R()-.5)*20,15+R()*30,{size:.85,life:19})}}}
+function petStep(dt){const ps=PET.ps,wind=Math.sin(PET.t*.35)*22+12;
+ for(let i=ps.length-1;i>=0;i--){const p=ps[i];p.age+=dt;
+  p.vx+=(wind+Math.sin(p.age*p.sf+p.ph)*p.sw-p.vx)*Math.min(1,dt*(p.k?1.2:1.6));
+  p.vy+=(p.vt-p.vy)*Math.min(1,dt*(p.k?.9:1.1));
+  p.x+=p.vx*dt;p.y+=p.vy*dt;p.rot+=p.vr*dt+p.vx*dt*.004;
+  if(p.age>p.life-1.2)p.a=Math.max(0,(p.life-p.age)/1.2);
+  if(p.y>PET.H+40||p.a<=0||p.x<-80||p.x>PET.W+80)ps.splice(i,1)}}
+function petDraw(){const c=PET.cx,k=PET.k;c.setTransform(1,0,0,1,0,0);c.clearRect(0,0,PET.cv.width,PET.cv.height);
+ PET.ps.forEach(p=>{const f=Math.cos(p.age*p.fr+p.ph),af=Math.abs(f),sx=Math.max(.16,af);
+  c.setTransform(k,0,0,k,0,0);c.translate(p.x,p.y);c.rotate(p.rot);c.scale(sx,.86+.14*af);c.globalAlpha=p.a*(.6+.4*af);
+  if(p.k){c.fillStyle=p.cc;c.fillRect(-p.s*.45,-p.s*.22,p.s*.9,p.s*.44)}else c.drawImage(petSpr(p.pal,p.spr),-p.s/2,-p.s/2,p.s,p.s)});
+ c.globalAlpha=1;c.setTransform(1,0,0,1,0,0)}
+function petLoop(now){PET.raf=0;if(!PET.ps.length&&!PET.rain&&!PET.amb){if(PET.cv){PET.cx.clearRect(0,0,PET.cv.width,PET.cv.height);PET.cv.style.display="none"}PET.last=0;return}
+ const dt=PET.last?Math.min(.05,(now-PET.last)/1e3):0;PET.last=now;PET.t+=dt;petSpawn(dt);petStep(dt);petDraw();PET.raf=requestAnimationFrame(petLoop)}
+function petGo(){petCv();if(!PET.raf)PET.raf=requestAnimationFrame(petLoop)}
+function petalBurst(x,y,n,o){if(petReduced())return;const R=Math.random;for(let i=0;i<n&&PET.ps.length<petMax()+30;i++){const a=-Math.PI/2+(R()-.5)*Math.PI*1.35,sp=140+R()*330;petNew(x+(R()-.5)*20,y+(R()-.5)*10,Math.cos(a)*sp,Math.sin(a)*sp,o)}petGo()}
+function petalFrom(r,n){if(petReduced())return;const R=Math.random;for(let i=0;i<n&&PET.ps.length<petMax()+30;i++)petNew(r.left+R()*r.width,r.top+R()*r.height,(R()-.5)*150,-20-R()*130);petGo()}
+function petalRain(sec,rate){if(petReduced())return;PET.rain={until:PET.t+sec,rate:rate||8,acc:0};petGo()}
+function celeb(){if(petReduced())return;const R=Math.random,x=PET.W||innerWidth,y=(PET.H||innerHeight)*.78;petalBurst(x/2,y,30,{});
+ for(let i=0;i<34;i++){const a=-Math.PI/2+(R()-.5)*Math.PI*1.5,sp=220+R()*380;petNew(x/2,y,Math.cos(a)*sp,Math.sin(a)*sp,{k:1,cc:CONF[i%CONF.length],life:7+R()*3,vt:90})}petGo()}
+function petAmb(on){PET.amb=on&&PW&&!petReduced()?1:0;if(PET.amb)petGo()}
+addEventListener("resize",()=>{if(PET.cv&&PET.cv.style.display!="none")petSize()});
+
+
+/* Virtual Labs and extra study tools. Everything here is UNDER CONSTRUCTION and locked.
+   To open one later, build it and set LAB_ON[<its number>]=true. */
+const LSUB=[["all","🧪 All"],["phy","⚛️ Physics"],["mat","➗ Maths"],["bio","🧬 Biology"],["che","⚗️ Chemistry"],["tool","🛠 Study tools"]];
+const LABS=[
+["phy","🎯","Projectile Motion","Launch at any angle and speed and watch the path, height and range."],
+["phy","🕰️","Pendulum Lab","Change length, mass and gravity and see how the swing time changes."],
+["phy","🔌","Circuit Builder","Build series and parallel circuits and test Ohm's law."],
+["phy","🔍","Lens and Mirror Optics","Draw ray diagrams for convex and concave lenses and mirrors."],
+["phy","🌊","Wave and Ripple Tank","See waves interfere, reflect and pass through a double slit."],
+["phy","⛰️","Forces and Ramps","Push blocks on slopes and explore friction and Newton's laws."],
+["phy","🎈","Gas Laws","Change pressure, volume and temperature of a gas in a box."],
+["phy","🧲","Magnets and Induction","Move a magnet through a coil and generate electric current."],
+["phy","📈","Motion Graphs","Link position, speed and acceleration graphs to real motion."],
+["phy","🛰️","Orbits and Gravity","Launch satellites and test Kepler's laws of planetary motion."],
+["phy","🧵","Springs and Oscillations","Measure simple harmonic motion with masses on springs."],
+["phy","🌈","Prism and Light Colours","Split white light and see refraction and total internal reflection."],
+["mat","📊","Graph Plotter","Plot any function and slide values to see how the graph moves."],
+["mat","📐","Geometry Studio","Construct triangles, circles and angles and test the theorems."],
+["mat","⭕","Unit Circle and Trigonometry","Watch sine, cosine and tangent grow around the circle."],
+["mat","∫","Calculus Visualiser","See derivatives as slopes and integrals as areas."],
+["mat","🎲","Probability Lab","Roll dice, flip coins and draw cards for thousands of trials."],
+["mat","🔢","Matrix Workshop","Add, multiply and invert matrices step by step."],
+["mat","📉","Statistics Explorer","Build histograms and find mean, median, mode and spread."],
+["mat","🍕","Fraction Visualiser","Compare and add fractions with pizzas, bars and number lines."],
+["mat","🧮","Equation Solver","Solve equations and see every step explained."],
+["mat","🔁","Transformations","Reflect, rotate, translate and enlarge shapes on a grid."],
+["mat","🔵","Venn Diagrams","Sort numbers and ideas into sets and see unions and overlaps."],
+["mat","🧩","Number Patterns","Spot rules in sequences, primes and the Fibonacci numbers."],
+["bio","🦠","Cell Explorer","Zoom into plant and animal cells and name every part."],
+["bio","🔬","Virtual Microscope","Look at slides of onion skin, blood and pond water."],
+["bio","🧬","DNA and Protein Synthesis","Copy DNA, make RNA and build a protein one step at a time."],
+["bio","🌼","Genetics and Punnett Squares","Cross parents and predict the traits of their children."],
+["bio","🫀","Body Systems","Explore the heart, lungs, brain and digestive system in layers."],
+["bio","🌿","Photosynthesis Lab","Change light, water and carbon dioxide and measure plant growth."],
+["bio","🦊","Food Chains and Ecosystems","Add and remove species and see how a food web reacts."],
+["bio","🐸","Virtual Dissection","Carefully explore frog, flower and heart models without any mess."],
+["bio","✂️","Mitosis and Meiosis","Step through cell division and compare the two kinds."],
+["bio","🧫","Enzyme Activity","Test how temperature and pH change how fast enzymes work."],
+["bio","🦎","Evolution and Selection","Watch a population change over generations."],
+["bio","⚡","Nerves and Reflexes","Follow a signal along a neuron and through a reflex arc."],
+["che","🧱","Periodic Table Explorer","Tap any element to see its properties, trends and uses."],
+["che","🧪","Titration Lab","Add acid to alkali drop by drop and find the end point."],
+["che","⚖️","Equation Balancer","Balance chemical equations and check the atoms on each side."],
+["che","🔮","3D Molecule Builder","Build molecules atom by atom and spin them in 3D."],
+["che","🌡️","pH and Indicators","Test everyday liquids and watch the indicator colours change."],
+["che","🔋","Electrolysis and Cells","Split water and plate metals with electricity."],
+["che","⏱️","Reaction Rates","Change temperature and concentration and time the reaction."],
+["che","🔥","Flame Tests","Identify metals from the colour of their flames."],
+["che","⚛️","Atom Builder","Add protons, neutrons and electrons to make any atom."],
+["che","🔗","Chemical Bonding","Compare ionic, covalent and metallic bonds."],
+["che","🧂","Mole Calculator","Convert between grams, moles and particles with working shown."],
+["che","🛢️","Organic Chemistry Naming","Name carbon chains and spot the functional groups."],
+["tool","🗂️","Smart Flashcards","Make decks and review them at the best time to remember."],
+["tool","📜","Formula Sheets","Quick reference for physics, maths and chemistry formulas."],
+["tool","🖩","Scientific Calculator","A full calculator with brackets, powers and trigonometry."],
+["tool","⚖","Unit Converter","Convert length, mass, time, speed, energy and more."],
+["tool","🕸️","Mind Map Maker","Draw mind maps and concept maps for any topic."],
+["tool","📝","Past Paper Practice","Timed practice questions with marking and feedback."],
+["tool","❔","Quiz Maker","Turn your own notes into multiple choice quizzes."],
+["tool","💡","Step-by-step Doubt Solver","Type a problem and follow the working one step at a time."],
+["tool","📚","Vocabulary Builder","Learn new words with meanings, examples and games."],
+["tool","⏳","Exam Countdown Planner","Count down to exams and split revision into daily goals."],
+["tool","📖","Reading Speed Trainer","Practise faster reading while keeping your understanding."],
+["tool","✍️","Formula Quiz","Test yourself on formulas from every subject."]
+];
+let LB="all";
+const LAB_ON={};
+function labF(k){LB=k;render()}
+function labs(){const ls=LB=="all"?LABS.map((x,i)=>[x,i]):LABS.map((x,i)=>[x,i]).filter(a=>a[0][0]==LB);
+ return`<div class="card uc"><div class=ucb>🚧 UNDER CONSTRUCTION 🚧</div><h2>🧪 Virtual Labs and Study Tools</h2><p class=mu>These labs and tools are still being built, so none of them can be used yet. They will open one by one in future updates.</p>
+<h3 style="margin:12px 0 6px">What's planned</h3>${LSUB.slice(1).map(([k,l])=>{const t=LABS.filter(x=>x[0]==k).length,r=LABS.filter((x,i)=>x[0]==k&&LAB_ON[i]).length;return`<div class=br><span>${l}</span><div class=bw><i style="width:${Math.round(r/t*100)}%"></i></div><b>${r}/${t}</b></div>`}).join("")}</div>
+<div class=card><div>${LSUB.map(([k,l])=>`<button class="${LB==k?"b":"s"}" style="margin:0 6px 6px 0" onclick="labF('${k}')">${l}</button>`).join("")}</div><div class=lg>${ls.map(([x,i])=>`<div class=lab role=button aria-disabled=true tabindex=0 onclick="labNo(${i})" onkeydown="if(event.key=='Enter'||event.key==' ')labNo(${i})"><i class=lk aria-hidden=true>🔒</i><div class=li>${x[1]}</div><b>${esc(x[2])}</b><span class=sm>${esc(x[3])}</span><em class=ucs>🚧 Under construction</em></div>`).join("")}</div></div>`}
+function labPromo(){return`<div class="card uc"><h3>🧪 Virtual Labs <em class=ucs>🚧 Under construction</em></h3><p class=mu style="margin:0">Physics, maths, biology and chemistry labs, plus extra study tools, are on the way.</p><button class=s onclick="show('labs')">See what's coming</button></div>`}
+function labNo(i){const x=LABS[i];if(!x||LAB_ON[i])return;labX();const o=document.createElement("div");o.id="lbm";o.setAttribute("role","dialog");o.onclick=e=>{if(e.target==o)labX()};
+ o.innerHTML=`<div class=nb style="text-align:center"><div class=ucb>🚧 UNDER CONSTRUCTION 🚧</div><div style="font-size:54px;line-height:1.2">${x[1]}</div><h3 style="margin:4px 0">${esc(x[2])}</h3><p style="margin:6px 0">${esc(x[3])}</p><p class=mu>This tool isn't available yet, so it can't be opened or used. It will be added in a future update.</p><button class=b onclick="labX()">OK</button></div>`;document.body.appendChild(o)}
+function labX(){const o=$("lbm");if(o)o.remove()}
+addEventListener("keydown",e=>{if(e.key=="Escape")labX()});
 
 /* Levels, badges, credits */
 const sm=()=>S.study.reduce((n,x)=>n+x.mins,0),cl=k=>S.coll[k]||[];
@@ -593,8 +747,8 @@ async function sync(){if(!CLOUD.url||!navigator.onLine)return;const u=CLOUD.url.
   localStorage.setItem(K+"Y","1");SM="Backed up ✔ "+new Date().toLocaleTimeString()}catch(e){SM="Backup paused, will retry when online"}sd()}
 const DB=()=>new Promise((ok,no)=>{const q=indexedDB.open("universe",1);q.onupgradeneeded=()=>q.result.createObjectStore("f");q.onsuccess=()=>ok(q.result);q.onerror=()=>no(q.error)});
 const dbp=async(m,k,v)=>{const d=await DB();return new Promise((ok,no)=>{const x=d.transaction("f",m=="get"?"readonly":"readwrite").objectStore("f"),q=m=="get"?x.get(k):m=="put"?x.put(v,k):x.delete(k);q.onsuccess=()=>ok(q.result);q.onerror=()=>no(q.error)})};
-const PJ="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js",RC=["#e0245e","#f5a623","#1e88e5","#2e7d32"];let RD=null;
-const lp=()=>window.pdfjsLib?Promise.resolve():new Promise((ok,no)=>{const s=document.createElement("script");s.src=PJ;s.onload=()=>{pdfjsLib.GlobalWorkerOptions.workerSrc=PJ.replace("pdf.min","pdf.worker.min");ok()};s.onerror=()=>no(new Error("The reader needs internet the first time. Check your connection and try again."));document.head.appendChild(s)});
+const PJS=[["https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/es5/build/pdf.min.js","https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/es5/build/pdf.worker.min.js"],["https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js","https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js"]],RC=["#e0245e","#f5a623","#1e88e5","#2e7d32"];let RD=null,pjP=null;
+const lp=()=>window.pdfjsLib?Promise.resolve():(pjP=pjP||new Promise((ok,no)=>{let i=0;const next=()=>{if(i>=PJS.length){pjP=null;return no(new Error("The reader needs internet the first time. Check your connection and try again."))}const u=PJS[i++],s=document.createElement("script");s.src=u[0];s.onload=()=>{if(!window.pdfjsLib){s.remove();return next()}pdfjsLib.GlobalWorkerOptions.workerSrc=u[1];ok()};s.onerror=()=>{s.remove();next()};document.head.appendChild(s)};next()}));
 const BT2=["Novel","Comic","Manga","Philosophy","Textbook","Other"];
 const lib=()=>{const L=S.lib,n=s=>L.filter(b=>b.st==s).length;
  return`<div class=card><h2>📖 Library</h2><p class=mu style="margin:0">${n("Done")} finished · ${n("Reading")} reading now · ${n("To read")} to read. Add a PDF to read, highlight and draw on it right here.</p></div>
@@ -710,7 +864,7 @@ let DK="";function dockH(){if(DK===cur)return;DK=cur;const D=[["home","🏠","Ho
 function sheet(){const s=$("sh");s.hidden=!s.hidden}
 
 /* Settings and backup */
-function sett(){return`<div class=card><h2>⚙ Settings</h2><label>Name</label><input id=sn value="${esc(S.name)}"><label>A message on the home screen</label><textarea id=nt rows=3>${esc(S.note)}</textarea><label class=chk style="margin-top:10px"><input type=checkbox ${S.cr?"checked":""} onchange="S.cr=this.checked;save()"> Turn on hobby credits (1 hour of study earns 30 minutes of free time)</label><button class=b onclick="saveSet()">Save</button></div>
+function sett(){return`<div class=card><h2>⚙ Settings</h2><label>Name</label><input id=sn value="${esc(S.name)}"><label>A message on the home screen</label><textarea id=nt rows=3>${esc(S.note)}</textarea><label class=chk style="margin-top:10px"><input type=checkbox ${S.cr?"checked":""} onchange="S.cr=this.checked;save()"> Turn on hobby credits (1 hour of study earns 30 minutes of free time)</label><label class=chk style="margin-top:10px"><input type=checkbox ${petOn()?"checked":""} onchange="S.pet=this.checked?1:0;save();petAmb(cur=='home'&&petOn())"> Gently falling petals on the home screen</label><button class=b onclick="saveSet()">Save</button></div>
 <div class=card><h3>🎨 Theme</h3><div style="display:flex;gap:8px;flex-wrap:wrap">${[["pink","🌸 Pink"],["maroon","🍷 Maroon night"],["green","🌿 Forest green"],["auto","🌓 Auto: pink by day, maroon at night"]].map(([v,l])=>`<button class="${S.th==v?"b":"s"}" style="margin:0" onclick="setTh('${v}')">${l}</button>`).join("")}</div></div>
 <div class=card><h3>☁️ Cloud backup</h3><p class=mu style="margin:0">${CLOUD.url?"Your data is backed up automatically and stays in step across your devices. Nothing to do.":"Cloud backup isn't switched on in this copy yet. Your data is still saved on this device and copied to a daily backup here."}</p><p class=sm id=sy>${esc(SM)}</p></div>
 <div class=card><h3>💾 Backup</h3><p class=mu>Backups happen automatically. These buttons are only here if you ever want a copy of your own.</p><button class=b onclick="exp()">Download backup</button><label class=b2>Restore backup<input type=file accept=".json" hidden onchange="imp(event)"></label><button class=d onclick="rst()">Reset everything</button></div>`}
@@ -718,5 +872,21 @@ function saveSet(){S.name=$("sn").value.trim();S.note=$("nt").value.trim();save(
 function exp(){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(S)],{type:"application/json"}));a.download="holistic-tracker-backup.json";a.click()}
 function imp(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!confirm("Replace everything on this device with this backup?"))return;d.ts=Date.now();localStorage.setItem(K,JSON.stringify(d));load();save();render()}catch(x){alert("That file isn't a backup from this app.")}};r.readAsText(f)}
 function rst(){if(confirm("Delete everything saved on this device?")){localStorage.removeItem(K);localStorage.removeItem(K+"B");try{indexedDB.deleteDatabase("universe")}catch(e){}load();save();render()}}
-try{navigator.storage.persist()}catch(e){}load();render();$("ttl").addEventListener("click",sorryTap);if(location.hash=="#sorry-preview")setTimeout(sorryOpen,700);setTimeout(FP,1500);setTimeout(()=>$("m").classList.remove("pg"),900);setInterval(()=>{if(!document.hidden){tickCd();tickClk()}},1000);sync();setInterval(sync,12e4);addEventListener("online",sync);document.addEventListener("visibilitychange",()=>{if(document.hidden){metStop(1);flush()}else{sync();if(T.run)tick();ap()}});setInterval(ap,6e4);$("m").onclick=()=>{$("sh").hidden=true};let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{if(RD&&!RD.busy)rdPage(RD.n)},300)});
+try{navigator.storage.persist()}catch(e){}load();render();
+/* Old Android Chrome: emulate flexbox gap (before Chrome 84) and aspect-ratio (before Chrome 88) */
+const NFG=/oldtest/.test(location.hash)||(()=>{try{const d=document.createElement("div");d.style.cssText="display:flex;flex-direction:column;row-gap:1px;position:absolute;left:-99px;top:0;visibility:hidden";d.innerHTML="<i style='display:block;height:1px'></i><i style='display:block;height:1px'></i>";document.body.appendChild(d);const g=d.offsetHeight==3;document.body.removeChild(d);return !g}catch(e){return false}})(),
+ NAR=/oldtest/.test(location.hash)||!(window.CSS&&CSS.supports&&CSS.supports("aspect-ratio","1"));
+let GSEL="",FXT=0;
+function gapSel(){const s=['[style*="gap"]'];try{[].forEach.call(document.styleSheets,sh=>{[].forEach.call(sh.cssRules||[],function f(r){if(r.cssRules&&!r.selectorText)return[].forEach.call(r.cssRules,f);if(r.selectorText&&/gap/.test(r.cssText))s.push(r.selectorText)})})}catch(e){}return s.join(",")}
+function fixLay(){FXT=0;try{
+ if(NAR)[].forEach.call(document.querySelectorAll(".sq,.cd"),e=>{const w=e.offsetWidth;if(w&&e.style.height!=w+"px")e.style.height=w+"px"});
+ if(NFG){if(!GSEL)GSEL=gapSel();[].forEach.call(document.querySelectorAll(GSEL),e=>{const cs=getComputedStyle(e);if(cs.display.indexOf("flex")<0)return;const cg=parseFloat(cs.columnGap)||0,rg=parseFloat(cs.rowGap)||0;if(!cg&&!rg)return;
+  const col=cs.flexDirection.indexOf("column")==0,wr=cs.flexWrap!="nowrap",k=[cg,rg,col,wr].join();
+  [].forEach.call(e.children,(c,i)=>{if(c.getAttribute("data-fg")===k+(i?1:0))return;const mine=c.hasAttribute("data-fg");
+   const put=(p,v)=>{if(mine||!(parseFloat(getComputedStyle(c)[p])||0))c.style[p]=v+"px"};
+   if(wr){put("marginRight",cg);put("marginBottom",rg)}else if(i){if(col)put("marginTop",rg);else put("marginLeft",cg)}
+   c.setAttribute("data-fg",k+(i?1:0))})})}}catch(e){}}
+function fixQ(){if(!FXT&&(NFG||NAR))FXT=setTimeout(fixLay,60)}
+if(NFG||NAR){new MutationObserver(fixQ).observe(document.body,{childList:true,subtree:true});addEventListener("resize",fixQ);addEventListener("orientationchange",fixQ);fixQ()}
+$("ttl").addEventListener("click",sorryTap);if(location.hash=="#sorry-preview")setTimeout(sorryOpen,700);setTimeout(FP,1500);setTimeout(()=>$("m").classList.remove("pg"),900);setInterval(()=>{if(!document.hidden){tickCd();tickClk()}},1000);sync();setInterval(sync,12e4);addEventListener("online",sync);document.addEventListener("visibilitychange",()=>{if(document.hidden){metStop(1);flush()}else{sync();if(T.run)tick();ap()}});setInterval(ap,6e4);$("m").onclick=()=>{$("sh").hidden=true};let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{if(RD&&!RD.busy)rdPage(RD.n)},300)});
 </script></body></html>
